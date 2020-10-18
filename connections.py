@@ -13,7 +13,7 @@ cloudMClnt = MongoClient("mongodb+srv://" + mongo_username + ":" + mongo_passwor
 
 def cloud_collection(database, collection):
     # Read mongo database 
-    db = cloudMClnt["ACSData"]
+    db = cloudMClnt[database]
 
     # Read mongo collection
     return db[collection]
@@ -38,7 +38,7 @@ def readMongoCloud(database,collection):
     db_c = cloud_collection(database,collection)
 
     # Read collection to a pandas dataframe
-    db_df = pd.DataFrame(list(acs_commute.find().sort([
+    db_df = pd.DataFrame(list(db_c.find().sort([
         ('ID',1)
     ])))
 

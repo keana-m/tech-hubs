@@ -18,8 +18,10 @@ def map():
     # We hardcode some information to be returned
     return render_template('map.html')
 
+
 @app.route("/readData")
 def read():
+    # Replace arguments with the name of your database and collection on mongodb
     db_df = readMongoCloud("ACSData","ACS2019_commute")
     return jsonify(db_df.to_dict('records'))
 
