@@ -35,15 +35,15 @@ def load_csv(filename,database,collection):
 
 def readMongoCloud(database,collection):
     # Load cloud collection from cloud
-    acs_commute = cloud_collection(database,collection)
+    db_c = cloud_collection(database,collection)
 
     # Read collection to a pandas dataframe
-    acs_commute_df = pd.DataFrame(list(acs_commute.find().sort([
+    db_df = pd.DataFrame(list(acs_commute.find().sort([
         ('ID',1)
     ])))
 
-    del acs_commute_df['_id']
-    return acs_commute_df
+    del db_df['_id']
+    return db_df
 
 # # Run to load data
 # load_csv('data/acs2019_1yr_B08105A_16000US4805000/acs2019_1yr_B08105A_16000US4805000.csv',"ACSData", "ACS2019_commute")
