@@ -13,11 +13,25 @@ def home():
     # We hardcode some information to be returned
     return render_template('index.html')
 
-@app.route('/map.html')
+@app.route('/map')
 def map():
     # We hardcode some information to be returned
     return render_template('map.html')
 
+@app.route('/comparison')
+def comparison():
+    # We hardcode some information to be returned
+    return render_template('comparison.html')
+
+@app.route('/team')
+def team():
+    # We hardcode some information to be returned
+    return render_template('team.html')
+
+@app.route('/blog')
+def blog():
+    # We hardcode some information to be returned
+    return render_template('blog.html')
 
 @app.route("/readData")
 def read():
