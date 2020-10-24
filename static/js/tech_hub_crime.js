@@ -17,7 +17,6 @@ function crime_map(coordinates) {
 
 coordinates = {
   "nyc": [40.730610, -73.935242],
-  "atlanta": [33.7490, -84.3880],
   "austin": [30.2672, -97.7431],
   "san francisco": [37.7749, -122.4194],
   "chicago": [41.8781, -87.6298]
@@ -25,14 +24,10 @@ coordinates = {
 
 url = {
   "nyc": ["https://data.cityofnewyork.us/resource/qgea-i56i.json"],
-  "atlanta": [],
   "austin": ["https://data.austintexas.gov/resource/fdj4-gpfu.json"],
   "san francisco": ["https://data.sfgov.org/resource/cuks-n6tp.json?"],
   "chicago": ["https://data.cityofchicago.org/resource/dfnk-7re6.json"]
 }
-
-// Data from each city's opendata portal (atlanta's page is under construction. use csv)
-
 
 // nyc crime function 
 function nyc_markers(url, map) {
@@ -42,7 +37,8 @@ function nyc_markers(url, map) {
     for (var i = 0; i < response.length; i++) {
       var location = response[i];
       if (location.lat_lon) {
-        markers.addLayer(L.marker([location.latitude, location.longitude]).bindPopup(response[i].descriptor));//.addTo(map);
+        markers.addLayer(L.marker([location.latitude, location.longitude])
+        .bindPopup(response[i].descriptor));
       }
     }
     map.addLayer(markers);
@@ -54,12 +50,16 @@ function nyc_markers(url, map) {
 
 function chi_markers(url, map) {
   d3.json(url, function (response) {
+    // Create a new marker cluster group
+    var markers = L.markerClusterGroup();
     for (var i = 0; i < response.length; i++) {
       var location = response[i];
       if (location.location) {
-        L.marker([location.latitude, location.longitude]).addTo(map);
+        markers.addLayer(L.marker([location.latitude, location.longitude])
+        .bindPopup(response[i]._primary_decsription));
       }
     }
+    map.addLayer(markers);
   })
 }
 
@@ -67,12 +67,16 @@ function chi_markers(url, map) {
 
 function sanfran_markers(url, map) {
   d3.json(url, function (response) {
+    // Create a new marker cluster group
+    var markers = L.markerClusterGroup();
     for (var i = 0; i < response.length; i++) {
       var location = response[i].location;
-      if (location) {
-        L.marker([location.coordinates[1], location.coordinates[0]]).addTo(map);
+      if (location.location) {
+        markers.addLayer(L.marker([location.latitude, location.longitude])
+        .bindPopup(response[i].descript));
       }
     }
+    map.addLayer(markers);
   })
 }
 
@@ -89,7 +93,13 @@ function austin_markers(url, map) {
   })
 }
 
-// atlanta crime function
+// build a dropdown function to call. relating to line 72 selDataset
+
+function BuildDropDown() {
+  var selection = d3.select("#selDataset")
+  selection.append("option")
+    .text(name)
+    .attr("value", name)
 
 var csv_atl = ("../Resources/Atlanta_Crime.csv")
 function atlanta_markers(csv_atl, map) {
@@ -105,11 +115,16 @@ function atlanta_markers(csv_atl, map) {
 
 //function map calls
 
-var map = crime_map(coordinates["nyc"])
+var map = crime_map(coordinates["chicago"])
 chi_markers(url["chicago"], map)
 nyc_markers(url["nyc"], map)
 sanfran_markers(url["san francisco"], map)
 austin_markers(url["austin"], map)
+
+function optionChanged(selection) {
+  map.panTo(coordinates[selection])
+
+}
 
 //////////CHLOROPLETH LAYER////////////////
 
