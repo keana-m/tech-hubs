@@ -1,13 +1,16 @@
 function crime_map(coordinates) {
   var map = L.map("map", {
     center: coordinates,
-    zoom: 10
+    zoom: 11
+
   });
+
+  
   // Adding tile layer
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     tileSize: 512,
-    maxZoom: 18,
+    maxZoom: 20,
     zoomOffset: -1,
     id: "mapbox/streets-v11",
     accessToken: API_KEY
@@ -38,15 +41,15 @@ function nyc_markers(url, map) {
       var location = response[i];
       if (location.lat_lon) {
         markers.addLayer(L.marker([location.latitude, location.longitude])
-        .bindPopup(response[i].descriptor));
+        .bindPopup(response[i].ofns_desc));
       }
     }
     map.addLayer(markers);
   })
 }
 
-
-// // chicago crime function 
+// // chicago crime function
+//after first (response) use filter.date 
 
 function chi_markers(url, map) {
   d3.json(url, function (response) {
@@ -71,8 +74,8 @@ function sanfran_markers(url, map) {
     var markers = L.markerClusterGroup();
     for (var i = 0; i < response.length; i++) {
       var location = response[i].location;
-      if (location.location) {
-        markers.addLayer(L.marker([location.latitude, location.longitude])
+      if (location) {
+        markers.addLayer(L.marker([location.coordinates[1], location.coordinates[0]])
         .bindPopup(response[i].descript));
       }
     }
@@ -84,12 +87,15 @@ function sanfran_markers(url, map) {
 
 function austin_markers(url, map) {
   d3.json(url, function (response) {
+    var markers = L.markerClusterGroup();
     for (var i = 0; i < response.length; i++) {
       var location = response[i].location;
       if (location) {
-        L.marker([location.latitude, location.longitude]).addTo(map);
+        markers.addLayer(L.marker([location.latitude, location.longitude])
+        .bindPopup(response[i].crime_type));
       }
     }
+    map.addLayer(markers);
   })
 }
 
@@ -101,20 +107,9 @@ function BuildDropDown() {
     .text(name)
     .attr("value", name)
 
-var csv_atl = ("../Resources/Atlanta_Crime.csv")
-function atlanta_markers(csv_atl, map) {
-  d3.csv(csv_atl, function (response) {
-    for (var i = 0; i < response.length; i++) {
-      var location = response[i].location;
-      if (location) {
-        L.marker([location.latitude, location.longitude]).addTo(map);
-      }
-    }
-  })
 }
 
 //function map calls
-
 var map = crime_map(coordinates["chicago"])
 chi_markers(url["chicago"], map)
 nyc_markers(url["nyc"], map)
@@ -155,7 +150,6 @@ console.log(data)
       weight: 1,
       fillOpacity: 0.7
     },
-
     // Binding a pop-up to each layer
     onEachFeature: function(feature, layer) {
       layer.bindPopup("RegionName: " + feature.properties.neighborhood + "<br>Average Home Values: " +
