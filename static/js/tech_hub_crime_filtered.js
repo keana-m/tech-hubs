@@ -88,19 +88,19 @@ function austin_markers(url, map) {
   })
 }
 
-// atlanta crime function
+// // atlanta crime function
 
-var csv_atl = ("../Resources/Atlanta_Crime.csv")
-function atlanta_markers(csv_atl, map) {
-  d3.csv(csv_atl, function (response) {
-    for (var i = 0; i < response.length; i++) {
-      var location = response[i].location;
-      if (location) {
-        L.marker([location.latitude, location.longitude]).addTo(map);
-      }
-    }
-  })
-}
+// var csv_atl = ("../Resources/Atlanta_Crime.csv")
+// function atlanta_markers(csv_atl, map) {
+//   d3.csv(csv_atl, function (response) {
+//     for (var i = 0; i < response.length; i++) {
+//       var location = response[i].location;
+//       if (location) {
+//         L.marker([location.latitude, location.longitude]).addTo(map);
+//       }
+//     }
+//   })
+// }
 
 //function map calls
 

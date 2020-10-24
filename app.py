@@ -13,7 +13,8 @@ def home():
     # We hardcode some information to be returned
     return render_template('index.html')
 
-@app.route('/map.html')
+# We create a route to the map.html which shows tech_hub_crime.js data 
+@app.route('/map')
 def map():
     # We hardcode some information to be returned
     return render_template('map.html')
@@ -30,3 +31,5 @@ def read():
 # More info - https://docs.python.org/3/library/__main__.html
 if __name__ == '__main__':
     app.run(debug=True)
+
+    

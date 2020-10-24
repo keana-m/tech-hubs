@@ -6,6 +6,7 @@ import json
 from config import mongo_username, mongo_password
 from pymongo import MongoClient
 from flask import Flask, jsonify, render_template
+from urllib.request import urlopen
 
 #cloud mongo connect
 cloudMClnt = MongoClient()
@@ -19,31 +20,22 @@ def cloud_collection(database, collection):
     return db[collection]
 
 # Run to load data into the mongodb cloud
-def load_csv(filename,database,collection):
+def load_json(url,database,collection):
     # Set collection to load data into 
     db_c = cloud_collection(database,collection)
 
-    # Read CSV to pandas dataframe
-    db_df = pd.read_csv(filename, header=0)
+    # # Read CSV to pandas dataframe
+    # db_df = pd.read_csv(filename, header=0)
 
-    # Convert pandas dataframe to json
-    json_data = db_df.to_dict('records')
+    # # Convert pandas dataframe to json
+    # json_data = db_df.to_dict('records')
+
+    response = urlopen(url)
+    data = response.read().decode("utf-8")
+    json_data = json.loads(data)
 
     # Load csv into mongo collection
     db_c.insert_many(json_data)
 
-
-def readMongoCloud(database,collection):
-    # Load cloud collection from cloud
-    db_c = cloud_collection(database,collection)
-
-    # Read collection to a pandas dataframe
-    db_df = pd.DataFrame(list(db_c.find().sort([
-        ('ID',1)
-    ])))
-
-    del db_df['_id']
-    return db_df
-
 # Run to load data. only use to load data, comment out after
-#load_csv('data/crime/Atlanta_crime.csv',"crime", "atlanta_table")
+load_json("https://data.cityofnewyork.us/resource/qgea-i56i.json","nyc_crime", "nyc_crime")
