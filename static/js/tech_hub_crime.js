@@ -113,7 +113,7 @@ austin_markers(url["austin"], map)
 
 //////////CHLOROPLETH LAYER////////////////
 
-var geoData = "static/data/master.geojson";
+var geoData = "static/data/geojson/nyc.geojson";
 
 var geojson;
 
