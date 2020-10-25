@@ -3,18 +3,17 @@ import pandas as pd
 import pymongo
 import csv
 import json
-from config import mongo_username, mongo_password
+# from config import mongo_username, mongo_password
 from pymongo import MongoClient
 from flask import Flask, jsonify, render_template
 
 #cloud mongo connect
 cloudMClnt = MongoClient()
-cloudMClnt = MongoClient("mongodb+srv://" + mongo_username + ":" + mongo_password + "@techdata.hvqxz.mongodb.net/<dbname>?retryWrites=true&w=majority")
+cloudMClnt = MongoClient("mongodb+srv://" + "keana-m" + ":" + "Techwars!" + "@cluster0.4xbnr.mongodb.net/<dbname>?retryWrites=true&w=majority")
 
 def cloud_collection(database, collection):
     # Read mongo database 
     db = cloudMClnt[database]
-
     # Read mongo collection
     return db[collection]
 
@@ -46,4 +45,4 @@ def readMongoCloud(database,collection):
     return db_df
 
 # # Run to load data
-# load_csv('data/acs2019_1yr_B08105A_16000US4805000/acs2019_1yr_B08105A_16000US4805000.csv',"ACSData", "ACS2019_commute")
+#load_csv('static/data/tech_job_data/techjobs.csv',"techjobs", "techjobs")
