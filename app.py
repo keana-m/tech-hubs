@@ -3,7 +3,7 @@ from flask import Flask, render_template,jsonify
 import json
 from pymongo import MongoClient
 from connections import readMongoCloud
-    
+
 # We create a Flask app
 app = Flask(__name__)
 
