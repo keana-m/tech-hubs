@@ -3,13 +3,13 @@ import pandas as pd
 import pymongo
 import csv
 import json
-from config import mongo_username, mongo_password
+# from config import mongo_username, mongo_password
 from pymongo import MongoClient
 from flask import Flask, jsonify, render_template
 
 #cloud mongo connect
 cloudMClnt = MongoClient()
-cloudMClnt = MongoClient("mongodb+srv://" + mongo_username + ":" + mongo_password + "@cluster0.4xbnr.mongodb.net/<dbname>?retryWrites=true&w=majority")
+cloudMClnt = MongoClient("mongodb+srv://" + keana-m + ":" + Golibam97 + "@cluster0.4xbnr.mongodb.net/<dbname>?retryWrites=true&w=majority")
 
 def cloud_collection(database, collection):
     # Read mongo database 
