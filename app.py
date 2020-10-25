@@ -32,11 +32,16 @@ def team():
 def blog():
     # We hardcode some information to be returned
     return render_template('blog.html')
+	
+@app.route('/techjobs')
+def jobs():
+    # We hardcode some information to be returned
+    return render_template('jobs.html')
 
 @app.route("/readData")
 def read():
     # Replace arguments with the name of your database and collection on mongodb
-    db_df = readMongoCloud("ACSData","ACS2019_commute")
+    db_df = readMongoCloud("techjobs","techjobs")
     return jsonify(db_df.to_dict('records'))
 
 # Get setup so that if we call the app directly (and it isn't being imported elsewhere)
