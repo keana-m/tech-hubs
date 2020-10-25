@@ -13,7 +13,7 @@ function crime_map(coordinates) {
     maxZoom: 20,
     zoomOffset: -1,
     id: "mapbox/streets-v11",
-    accessToken: API_KEY
+    accessToken: "pk.eyJ1IjoiY2FzdHJvc3RlcGhhbm8iLCJhIjoiY2tmcTAwNW93MGZjNTJzcHN4aG04cmZkYSJ9.cq1ZMc5yOD0ny7ygoB7Gjw"
   }).addTo(map);
   return map
 };
