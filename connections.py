@@ -9,7 +9,7 @@ from flask import Flask, jsonify, render_template
 
 #cloud mongo connect
 cloudMClnt = MongoClient()
-cloudMClnt = MongoClient("mongodb+srv://" + "keana-m" + ":" + "Techw@rs" + "@cluster0.4xbnr.mongodb.net/<dbname>?retryWrites=true&w=majority")
+cloudMClnt = MongoClient("mongodb+srv://" + "keana-m" + ":" + "Techwars!" + "@cluster0.4xbnr.mongodb.net/<dbname>?retryWrites=true&w=majority")
 
 def cloud_collection(database, collection):
     # Read mongo database 
