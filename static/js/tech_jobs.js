@@ -1,4 +1,4 @@
-urlstring='static/data/data.txt'
+urlstring='https://tech-hub-wars.herokuapp.com/readData'
 
 Plotly.d3.json(urlstring, function(err, rows){
 
