@@ -5,7 +5,6 @@ function crime_map(coordinates) {
 
   });
 
-  
   // Adding tile layer
   L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
@@ -28,13 +27,13 @@ coordinates = {
 url = {
   "nyc": ["https://data.cityofnewyork.us/resource/qgea-i56i.json"],
   "austin": ["https://data.austintexas.gov/resource/fdj4-gpfu.json"],
-  "san francisco": ["https://data.sfgov.org/resource/cuks-n6tp.json?"],
+  "san francisco": ["https://data.sfgov.org/resource/cuks-n6tp.json"],
   "chicago": ["https://data.cityofchicago.org/resource/dfnk-7re6.json"]
 }
 
 // nyc crime function 
 function nyc_markers(url, map) {
-  d3.json(url, function(response) {
+  d3.json(url, function(response){
     // Create a new marker cluster group
     var markers = L.markerClusterGroup();
     for (var i = 0; i < response.length; i++) {
@@ -110,7 +109,7 @@ function BuildDropDown() {
 }
 
 //function map calls
-var map = crime_map(coordinates["chicago"])
+var map = crime_map(coordinates["nyc"])
 chi_markers(url["chicago"], map)
 nyc_markers(url["nyc"], map)
 sanfran_markers(url["san francisco"], map)
