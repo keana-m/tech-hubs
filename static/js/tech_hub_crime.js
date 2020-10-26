@@ -123,7 +123,7 @@ function optionChanged(selection) {
 
 //////////CHLOROPLETH LAYER////////////////
 
-var geoData = "static/data/geojson/nyc.geojson";
+var geoData = "static/data/geojson/MASTER.geojson";
 
 var geojson;
 
