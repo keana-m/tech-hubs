@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tech Job Insights</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-  <title>Top US Tech Hubs</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="../static/img/favicon.png" rel="icon">
@@ -24,7 +26,7 @@
   <link href="../static/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="../static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="../static/vendor/aos/aos.css" rel="stylesheet">
-
+  
   <!-- Template Main CSS File -->
   <link href="../static/css/style.css" rel="stylesheet">
 
@@ -39,7 +41,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-transparent">
+  <header id="header" class="fixed-top ">
     <div class="container">
 
       <div class="logo float-left">
@@ -62,22 +64,90 @@
           </li>
         </ul>
       </nav><!-- .nav-menu -->
+
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero No Slider Section ======= -->
-  <section id="hero-no-slider" class="d-flex justify-cntent-center align-items-center">
-    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
-          <h2>CYBERSTATES: Analysis of Major Tech Hubs in the US</h2>
-          <p>Group three presents an interactive way for users to navigate data related to America's top tech hub cities. Here you can explore fast facts, tech hub trends and relevant articles - Enjoy!</p>
-          <a href="map" class="btn-get-started ">Tech Hub City Map</a>
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Technology Occupation Insights</h2>
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li>Technology Occupation Insights</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= About Section ======= -->
+    <section class="about" data-aos="fade-up">
+      <div class="container">
+        <div class="row">
+          <!-- ======= Visualization ======= -->
+          <div class="col-md-6">
+            <div class="showcase__section" id="bubble">
+              <div class="spacer --small"></div>
+                <div id="bubbleplots"style="width: 900px; height: 500px;>
+                  <div class="bubbleplot" data-num="0">
+                    <div class="plot" id="plotdiv"></div>
+                    <div class="control-row">
+                    Tech Occupation: <select class="jobdata">
+                    </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section><!-- End Hero No Slider Sectio -->
+      <div class="container">
+        <div class="row">
+          <!-- ======= Visualization ======= -->
+          <div class="col-md-6">
+            <div id="chart_div" style="width: 900px; height: 500px;"></div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
 
+    <!-- ======= Facts Section ======= -->
+    <section class="facts section-bg" data-aos="fade-up">
+      <div class="container">
+
+        <div class="row counters">
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">531,200</span>
+            <p>Projection of New Tech Jobs</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">88,240</span>
+            <p>Mean Annual Salary</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">11</span>
+            <p>Percent Job Growth in 2029</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">5</span>
+            <p>States considered today's Top Tech Hubs </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+    
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
     <div class="container">
@@ -107,6 +177,18 @@
   <script src="../static/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../static/vendor/aos/aos.js"></script>
+  
+  <!-- Plotly/D3 JS File -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Chart/Loader JS File -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- Tech Data JS File -->
+  <script src="../static/js/tech_jobs.js"></script>
+  <script src="../static/js/tech_job_tree.js"></script>
+  <script src="../static/js/tech_jobs2.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../static/js/main.js"></script>

@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-family: "Roboto", sans-serif;
 }
 
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -165,6 +166,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-weight: 500;
   text-transform: none;
   color: #1c3745;
+  z-index:1000;
 }
 
 .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
