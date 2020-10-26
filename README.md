@@ -1,3 +1,3 @@
 # Welcome to our App!
 
-## Demo: www.tech-hub-wars.herokuapp.com
+## Demo: https://tech-hub-wars.herokuapp.com/
