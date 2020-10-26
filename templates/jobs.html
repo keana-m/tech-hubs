@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Tech Job Insights</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -76,10 +75,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>About Us</h2>
+          <h2>Technology Occupation Insights</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>About Us</li>
+            <li>Technology Occupation Insights</li>
           </ol>
         </div>
 
@@ -90,9 +89,17 @@
     <section class="about" data-aos="fade-up">
       <div class="container">
         <div class="row">
+          <!-- ======= Visualization ======= -->
           <div class="col-md-6">
-              <!-- ======= Visualization ======= -->
-              <div id="plot3"></div>
+              <div id="plot3" style="width: 900px; height: 500px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <!-- ======= Visualization ======= -->
+          <div class="col-md-6">
+            <div id="chart_div" style="width: 900px; height: 500px;"></div>
           </div>
         </div>
       </div>
@@ -117,6 +124,11 @@
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">11</span>
             <p>Percent Job Growth in 2029</p>
+          </div>
+
+          <div class="col-lg-3 col-6 text-center">
+            <span data-toggle="counter-up">5</span>
+            <p>States considered today's Top Tech Hubs </p>
           </div>
 
         </div>
@@ -225,11 +237,16 @@
   <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../static/vendor/aos/aos.js"></script>
   
-  <!-- Plotly JS File -->
+  <!-- Plotly/D3 JS File -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+
+  <!-- Chart/Loader JS File -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <!-- Tech Data JS File -->
   <script src="../static/js/tech_jobs.js"></script>
+  <script src="../static/js/tech_job_tree.js"></script>
+  <script src="../static/js/tech_jobs2.js"></script>
 
   <!-- Template Main JS File -->
   <script src="../static/js/main.js"></script>
