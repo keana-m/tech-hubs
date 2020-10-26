@@ -1,4 +1,5 @@
-urlstring='static/data/data.txt'
+urlstring='data.txt'
+//urlstring='static/data/data.txt'
 
 Plotly.d3.json(urlstring, function(err, rows){
 
@@ -25,6 +26,7 @@ var trace2 = {
     text: a_pct10.map(String),
     textposition: 'auto',
     hoverinfo: 'on',
+    marker: {color: '#f0f8ff'},
     transforms: [{
         type: 'aggregate',
         groups: city,
@@ -42,6 +44,7 @@ var trace2a = {
     text: a_pct25.map(String),
     textposition: 'auto',
     hoverinfo: 'on',
+    marker: {color: '#b5ddff'},
     transforms: [{
         type: 'aggregate',
         groups: city,
@@ -59,6 +62,7 @@ var trace2b = {
     text: a_pct75.map(String),
     textposition: 'auto',
     hoverinfo: 'on',
+    marker: {color: '#7ac1ff'},
     transforms: [{
         type: 'aggregate',
         groups: city,
@@ -76,6 +80,7 @@ var trace2c = {
     text: a_pct90.map(String),
     textposition: 'auto',
     hoverinfo: 'on',
+    marker: {color: '#3fa6ff'},
     transforms: [{
         type: 'aggregate',
         groups: city,
@@ -91,6 +96,11 @@ var data2 = [trace2,trace2a,trace2b,trace2c];
 
 Plotly.newPlot('plot3', data2, {
     title: 'Tech Occupation Wages within Tech Hubs',
+    font: {
+      family: 'Arial',
+      size: 14,
+      color: '#00090c'
+    },
     xaxis: {
       tickson: "boundaries",
       ticklen: 15,
