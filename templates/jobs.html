@@ -91,7 +91,18 @@
         <div class="row">
           <!-- ======= Visualization ======= -->
           <div class="col-md-6">
-              <div id="plot3" style="width: 900px; height: 500px;"></div>
+            <div class="showcase__section" id="bubble">
+              <div class="spacer --small"></div>
+                <div id="bubbleplots"style="width: 900px; height: 500px;>
+                  <div class="bubbleplot" data-num="0">
+                    <div class="plot" id="plotdiv"></div>
+                    <div class="control-row">
+                    Tech Occupation: <select class="jobdata">
+                    </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -169,6 +180,7 @@
   
   <!-- Plotly/D3 JS File -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!-- Chart/Loader JS File -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
