@@ -1,4 +1,3 @@
-//urlstring='data.txt'
 urlstring='static/data/data.txt'
 
 Plotly.d3.json(urlstring, function(err, rows){
@@ -54,7 +53,7 @@ function setBarChart(chosenJob) {
       y: currentWage10,
       name: '10th percentile wage',
       type: 'bar',
-      text: currentWage10.map(String),
+      text: currentWage10,
       textposition: 'auto',
       hoverinfo: 'on',
       marker: {color: '#f0f8ff'},
@@ -72,7 +71,7 @@ function setBarChart(chosenJob) {
       y: currentWage25,
       name: '25th percentile wage',
       type: 'bar',
-      text: currentWage25.map(String),
+      text: currentWage25,
       textposition: 'auto',
       hoverinfo: 'on',
       marker: {color: '#b5ddff'},
@@ -90,7 +89,7 @@ function setBarChart(chosenJob) {
       y: currentWage75,
       name: '70th percentile wage',
       type: 'bar',
-      text: currentWage10.map(String),
+      text: currentWage75,
       textposition: 'auto',
       hoverinfo: 'on',
       marker: {color: '#7ac1ff'},
@@ -108,7 +107,7 @@ function setBarChart(chosenJob) {
       y: currentWage90,
       name: '90th percentile wage',
       type: 'bar',
-      text: currentWage25.map(String),
+      text: currentWage90,
       textposition: 'auto',
       hoverinfo: 'on',
       marker: {color: '#3fa6ff'},
@@ -137,7 +136,7 @@ function setBarChart(chosenJob) {
         dividercolor: 'grey',
         dividerwidth: 2
       },
-      yaxis: {range: [0, 200000]},
+      yaxis: {range: [0, 250000]},
     };
 
     Plotly.newPlot('plotdiv', data, layout, {showSendToCloud: true});
