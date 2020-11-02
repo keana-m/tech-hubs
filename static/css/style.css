@@ -127,6 +127,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   transition: 0.3s;
   font-size: 14px;
   font-family: "Open Sans", sans-serif;
+  z-index:1000;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -165,7 +166,6 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-weight: 500;
   text-transform: none;
   color: #1c3745;
-  z-index:1000;
 }
 
 .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
