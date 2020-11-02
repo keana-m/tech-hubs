@@ -3,6 +3,7 @@ from flask import Flask, render_template,jsonify
 import json
 from pymongo import MongoClient
 from connections import readMongoCloud
+from census import readMongoCensus
 
 import os 
 
@@ -43,10 +44,16 @@ def jobs():
     # We hardcode some information to be returned
     return render_template('jobs.html')
 
-@app.route("/readData")
-def read():
+# @app.route("/readData")
+# def read():
+#     # Replace arguments with the name of your database and collection on mongodb
+#     db_df = readMongoCloud("techjobs","techjobs")
+#     return jsonify(db_df.to_dict('records'))
+
+@app.route("/censusData")
+def readCensus():
     # Replace arguments with the name of your database and collection on mongodb
-    db_df = readMongoCloud("techjobs","techjobs")
+    db_df = readMongoCensus("censusData","2019 Education Attainment")
     return jsonify(db_df.to_dict('records'))
 
 # Get setup so that if we call the app directly (and it isn't being imported elsewhere)
